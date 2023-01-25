@@ -1,3 +1,5 @@
+import { clearPerson } from "./Person";
+
 export const addPerson = fullname => {
     return async (dispatch, getstate) => {
         const persons = [...getstate().persons];
