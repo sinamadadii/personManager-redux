@@ -7862,6 +7862,11 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
+"redux-thunk@^2.4.2":
+  "integrity" "sha1-udBdEZlLmfepHqIj6LBM8K+l7zs="
+  "resolved" "https://npm.iranrepo.ir/api/npm/npm-all/redux-thunk/-/redux-thunk-2.4.2.tgz"
+  "version" "2.4.2"
+
 "redux@^4", "redux@^4.2.0":
   "integrity" "sha1-RvENbim2Zm33WHgEN2Ue6yuWnxM="
   "resolved" "https://npm.iranrepo.ir/api/npm/npm-all/redux/-/redux-4.2.0.tgz"
