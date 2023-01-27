@@ -19,7 +19,7 @@ const Header = ({ appTitle }) => {
             </Alert>
             <Alert variant="light">
                 تعداد اشخاص{" "}
-                <Badge pill variant={badgeStyle}>
+                <Badge text="light" variant={badgeStyle}>
                     {persons.length}
                 </Badge>{" "}
                 نفر می باشد

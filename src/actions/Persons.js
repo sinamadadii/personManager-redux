@@ -1,4 +1,3 @@
-import reducers from '.././reducers';
 import { clearPerson } from './Person';
 
 export const addPerson = fullname => {

@@ -4,10 +4,13 @@ import Header from "./components/common/Header";
 import NewPerson from "./components/Person/NewPerson";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import Persons from './components/Person/Persons';
+import { setShowPersons } from './actions/showPerson';
+import { showPersonsReducer } from './reducers/showPersons';
 
 const App = () => {
 
-    const showPersons = useSelector(state => state.showPersons)
+    const showPerson = useSelector(state => state.showPersons)
     const dispatch = useDispatch();
     return (
         <div className="rtl text-center">
@@ -16,13 +19,13 @@ const App = () => {
             <NewPerson />
 
             <Button
-                onClick={() => dispatch(showPersons)}
-                variant={showPersons ? "info" : "danger"}
+                onClick={() => dispatch(setShowPersons())}
+                variant={showPerson ? "info" : "danger"}
             >
                 نمایش اشخاص
             </Button>
 
-            {showPersons}
+            {showPerson ? <Persons /> : null}
         </div>
     );
 };

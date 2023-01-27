@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setPerson } from './../../actions/Person';
+import { addPerson } from './../../actions/Persons';
 
 const NewPerson = () => {
 
@@ -32,7 +33,7 @@ const NewPerson = () => {
                             variant="success"
                             size="sm"
                             className="fa fa-plus-square"
-                            onClick={() => dispatch(NewPerson(person))}
+                            onClick={() => dispatch(addPerson(person))}
                         />
                     </div>
                 </div>
