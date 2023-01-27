@@ -1,3 +1,6 @@
+import reducers from '.././reducers';
+import { clearPerson } from './Person';
+
 export const addPerson = fullname => {
 
     return async (dispatch, getstate) => {
@@ -9,7 +12,7 @@ export const addPerson = fullname => {
         if (person.fullname !== "" && person.fullname !== " ") {
             persons.push(person);
             await dispatch({ type: 'ADD_PERSON', payload: persons });
-            // await dispatch(clearPerson())
+            await dispatch(clearPerson());
         }
     }
 }
@@ -22,10 +25,9 @@ export const deletePerson = personId => {
     }
 }
 
-export const updatePerson = (event, id) => {
+export const updatePerson = (event, personId) => {
     return async (dispatch, getstate) => {
         const allPersons = getstate().persons;
-
         const personIndex = allPersons.findIndex(p => p.id === personId);
         const person = allPersons[personIndex];
         person.fullname = event.target.value;
@@ -33,68 +35,6 @@ export const updatePerson = (event, id) => {
         const persons = [...allPersons];
 
         persons[personIndex] = person;
+        await dispatch({ type: 'UPDATE_PERSON', payload: persons })
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { clearPerson } from "./Person";
-// import { reducers } from './../reducers/index';
-
-// export const addPerson = fullname => {
-//     return async (dispatch, getstate) => {
-//         const persons = [...getstate().persons];
-//         const person = {
-//             id: Math.floor(Math.random() * 1000),
-//             fullname
-//         };
-//         if (person.fullname !== "" && person.fullname !== " ") {
-//             persons.push(person);
-//             await dispatch({ type: 'ADD_PERSON', payload: persons });
-//             await dispatch(clearPerson());
-//         }
-//     }
-// }
-// export const deletePerson = personId => {
-//     return async (dispatch, getstate) => {
-//         const persons = [...getstate().persons];
-//         const filteredPersons = persons.filter(p => p.id !== personId);
-//         await dispatch({ type: 'DELETE_person', payload: filteredPersons })
-
-//     }
-// }
-// export const updatePerson = (event, personId) => {
-//     return async (dispatch, getstate) => {
-//         const allPersons = getstate().persons;
-
-//         const personIndex = allPersons.findIndex(p => p.id === personId);
-//         const person = allPersons[personIndex];
-//         person.fullname = event.target.value;
-
-//         const persons = [...allPersons];
-
-//         persons[personIndex] = person;
-//         await dispatch({ type: 'UPDATE_PERSON', payload: persons })
-//     }
-// }

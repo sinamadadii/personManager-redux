@@ -1,7 +1,14 @@
 import React, { useRef } from "react";
 import { Button } from "react-bootstrap";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setPerson } from './../../actions/Person';
 
-const NewPerson = ({ setPerson, newPerson, person }) => {
+const NewPerson = () => {
+
+    const person = useSelector(state => state.person);
+    const dispatch = useDispatch();
+
     const focusInput = useRef(null);
 
     return (
@@ -16,7 +23,7 @@ const NewPerson = ({ setPerson, newPerson, person }) => {
                         type="text"
                         placeholder="اسم بهم بده"
                         className="form-control"
-                        onChange={setPerson}
+                        onChange={(event) => dispatch(setPerson(event))}
                         value={person}
                     />
                     <div className="input-group-prepend">
@@ -25,7 +32,7 @@ const NewPerson = ({ setPerson, newPerson, person }) => {
                             variant="success"
                             size="sm"
                             className="fa fa-plus-square"
-                            onClick={newPerson}
+                            onClick={() => dispatch(NewPerson(person))}
                         />
                     </div>
                 </div>

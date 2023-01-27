@@ -1,5 +1,5 @@
-export const showPerosn = () => {
+export const showPersons = () => {
     return async dispatch => {
-        await dispatch({ type: 'SHOW_PERSON' })
+        await dispatch({ type: 'SHOW_PERSONS' })
     }
 }
